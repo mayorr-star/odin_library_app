@@ -41,7 +41,6 @@ form{
     background-color: var(--form-bg-color);
 }
 
-
 form > legend{
     margin-bottom: 7px;
 }
@@ -49,8 +48,6 @@ form > legend{
 form > legend:nth-child(3){
     margin-top: 16px;
 }
-
-
 
 fieldset{
     padding: 7px 10px;
@@ -149,6 +146,7 @@ main.content{
     gap: 12px;
     grid-template-rows: repeat(3, 1fr);
     background-color: var(--sidebar-text-color);
-   padding: 20px; 
-   border-radius: 5px;
+    padding: 20px; 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px var(--form-bg-color);
 }
