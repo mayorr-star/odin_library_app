@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    font-size: 12px;
+    --sidebar-text-color: white;
+
+    --form-bg-color: rgba(0, 0, 0, 0.6);
+}
+
+.library{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto 1fr;
+}
+
+/* Sidebar */
+aside.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 25%;
+    overflow: auto;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--sidebar-text-color);
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 2;
+    padding: 20px;
+    background-image: url(./images/All\ I\ Need\ is\ a\ Little\ Cabin\ in\ the\ Woods\ \(25\ Photos\).jpeg);
+}
+
+form{
+    overflow: hidden;
+    padding: 10px;
+    background-color: var(--form-bg-color);
+}
+
+
+form > legend{
+    margin-bottom: 7px;
+}
+
+form > legend:nth-child(3){
+    margin-top: 16px;
+}
+
+
+
+fieldset{
+    padding: 7px 10px;
+}
+
+fieldset.book_details > label{
+    display: block;
+}
+
+fieldset.book_details > input{
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+fieldset.radio_inputs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.read, .not_read{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+fieldset.book_details > input{
+    padding: 3px 12px;
+    width: 100%;
+    border-radius: 7px;
+    border-color: gray;
+    outline: none;
+}
+
+.submit_btn, .add_book_btn{
+    border: none;
+    outline: none;
+    float: right;
+    font-weight: 700;
+    border-radius: 5px;
+    margin-top: 40px;
+    font-size: 1.2rem;
+    padding: 5px 16px;
+    cursor: pointer;
+} 
+
+.submit_btn:hover, .add_book_btn:hover{
+    color: var(--sidebar-text-color);
+    background-color: var(--form-bg-color);
+}
+
+.add_book_btn{
+    width: 50%;
+}
+/* Sidebar */
+
+/* header */
+header{
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 4 / 13;
+}
+
+header > .header{
+    font-size: 2.0rem;
+    background-color: var(--form-bg-color);
+    text-align: center;
+    width: 50%;
+    padding: 20px;
+    color: var(--sidebar-text-color);
+}
+
+.header{
+    letter-spacing: 1.2rem;
+}
+/* Header */
+
+/* Main */
+main.content{
+    font-size: 1.2rem;
+    font-weight: 700;
+    grid-column: 4 / 13;
+    background-color: aliceblue;
+}
+
+.content > .books{
+    padding: 20px;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.card{
+    display: grid;
+    gap: 12px;
+    grid-template-rows: repeat(3, 1fr);
+    background-color: var(--sidebar-text-color);
+   padding: 20px; 
+   border-radius: 5px;
+}

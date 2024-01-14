@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Library</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="library">
+        <aside class="sidebar">
+            <form action="#" method="post">
+                <legend>Book Details</legend>
+                <fieldset class="book_details">
+                    <label for="book_title">Book Title*</label>
+                    <input type="text" id="book_title" name="book_title" required>
+
+                    <label for="author">Author*</label>
+                    <input type="text" id="book_author" name="book_author" required>
+
+                    <label for="pages">Pages*</label>
+                    <input type="number" id="num_of_pages" name="num_of_pages" min="2" required>
+                </fieldset>
+                <legend>Have you read the book?</legend>
+                <fieldset class="radio_inputs">
+                    <div class="read">
+                        <label for="read">Yes</label>
+                        <input type="radio" id="read" name="reading_status" value="Yes">
+                    </div>
+                    <div class="not_read">
+                        <label for="not_read">No</label>
+                        <input type="radio" id="not_read" name="reading_status" value="No">
+                    </div>
+                </fieldset>
+                <button type="submit" class="submit_btn" id="submit_btn">Submit</button>
+            </form>
+                <button type="button" class="add_book_btn" id="add_book_btn">Add Book</button>
+        </aside>
+        <header>
+            <div class="header">
+                <h1>Library</h1>
+            </div>
+        </header>
+        <main class="content">
+            <div class="books">
+                <div class="card">
+                    <span>The Alchemist</span>
+                    <span>Paulo Coehlo</span>
+                    <span>256 pages</span>
+                </div>
+                <div class="card">
+                    <span>Book Title</span>
+                    <span>Book Author</span>
+                    <span>Book Pages</span>
+                </div>
+                <div class="card">
+                    <span>Book Title</span>
+                    <span>Book Author</span>
+                    <span>Book Pages</span>
+                </div>
+                <div class="card">
+                    <span>Book Title</span>
+                    <span>Book Author</span>
+                    <span>Book Pages</span>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
