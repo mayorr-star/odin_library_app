@@ -24,12 +24,11 @@ body{
 }
 
 .container > header{
-    background-color: var(--form-bg-color);
+    background-color: white;
     padding: 20px;
     text-align: center;
     font-size: 1.5rem;
     letter-spacing: 1.1rem;
-    margin-bottom: 10px;
     box-shadow: 1px 0 3px 1px black;
     display: flex;
     align-items: center;
@@ -41,8 +40,10 @@ body{
     background-color: var(--form-bg-color);
     padding: 20px;
     width: 30%;
-    margin: 0 auto;
     display: none;
+    position: absolute;
+    left: 35%;
+    top: 10%;
 }
 
 .form > h2{
@@ -141,14 +142,27 @@ body.show form{
     display: block;
 }
 
-body.show .background_blur{
+.input_control.success input{
+    border-color: #09c372;
+}
+
+.input_control.error input{
+    border-color: #ff3860;
+}
+
+.error{
+    color: #ff3860;
+    font-size: 9px;
+}
+
+/* body.show .background_blur{
     background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: -1;
-    filter: blur(5px);
-}
+    filter: blur(20px);
+} */
 /* FORM */
 main.library > .book{
     background-color: var(--form-bg-color);
