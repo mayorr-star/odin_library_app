@@ -8,190 +8,165 @@
 
 :root{
     font-size: 12px;
-    --sidebar-text-color: white;
-    --form-bg-color: rgba(0, 0, 0, 0.6);
+    --form-bg-color: whitesmoke;
     --error-color: #fb7185;
+    --form-header-color: #0f2027;
+    --button-bg-color: rgb(41, 57, 194);
 }
 
-.library{
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto 1fr;
-}
-
-/* Sidebar */
-aside.sidebar{
-    position: fixed;
+body, html{
     height: 100%;
-    width: 25%;
-    overflow: auto;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--sidebar-text-color);
-    grid-column: 1 / span 3;
-    grid-row: 1 / span 2;
-    padding: 20px;
-    background-image: url(./images/All\ I\ Need\ is\ a\ Little\ Cabin\ in\ the\ Woods\ \(25\ Photos\).jpeg);
+    margin: 0;
 }
 
-form{
-    overflow: hidden;
-    padding: 10px;
+body{
+    background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+.container > header{
     background-color: var(--form-bg-color);
-    visibility: hidden;
-}
-
-form > legend{
-    margin-bottom: 7px;
-}
-
-form > legend:nth-child(3){
-    margin-top: 16px;
-}
-
-fieldset{
-    padding: 7px 10px;
-}
-
-fieldset.book_details > label{
-    display: block;
-}
-
-fieldset.radio_inputs{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.read, .not_read{
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 1.1rem;
+    margin-bottom: 10px;
+    box-shadow: 1px 0 3px 1px black;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
 }
 
-fieldset.book_details > input{
-    padding: 3px 12px;
-    width: 100%;
-    border-radius: 7px;
-    border-color: gray;
-    outline: none;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    border: none;
-}
-
-fieldset.book_details input.error{
-    margin-bottom: 0;
-    border: 2px solid var(--error-color);
-}
-
-small{
+/* FORM */
+.form{
+    background-color: var(--form-bg-color);
+    padding: 20px;
+    width: 30%;
+    margin: 0 auto;
     display: none;
 }
 
-small.error{
-    display: block;
-    margin-bottom: 10px;
-    color: var(--error-color);
-}
-
-.submit_btn, .add_book_btn{
-    border: none;
-    outline: none;
-    float: right;
-    font-weight: 700;
-    border-radius: 5px;
-    margin-top: 40px;
-    font-size: 1.2rem;
-    padding: 5px 16px;
-    cursor: pointer;
-} 
-
-.submit_btn:hover, .add_book_btn:hover{
-    color: var(--sidebar-text-color);
-    background-color: var(--form-bg-color);
-}
-
-.add_book_btn{
-    width: 50%;
+.form > h2{
+    color: var(--form-header-color);
+    text-align: center;
+    margin-bottom: 20px;
     text-transform: uppercase;
 }
 
-form.show{
-    visibility: visible;
-}
-
-
-/* Sidebar */
-
-/* header */
-header{
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 4 / 13;
-}
-
-header > .header{
-    font-size: 2.0rem;
-    background-color: var(--form-bg-color);
+.book_details > legend{
+    font-size: 1.5rem;
+    text-transform: uppercase;
     text-align: center;
-    width: 50%;
+    color: var(--form-header-color);
+}
+
+.book_details{
     padding: 20px;
-    color: var(--sidebar-text-color);
+    margin-bottom: 20px;
 }
 
-.header{
-    letter-spacing: 1.2rem;
-}
-/* Header */
-
-/* Main */
-main.content{
-    font-size: 1.2rem;
-    font-weight: 700;
-    grid-column: 4 / 13;
-    background-color: aliceblue;
-}
-
-.content > .books{
-    padding: 20px;
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.card{
-    display: grid;
-    gap: 12px;
-    grid-template-rows: repeat(4, 1fr);
-    background-color: var(--sidebar-text-color);
-    padding: 20px; 
-    border-radius: 5px;
-    box-shadow: 0 4px 8px var(--form-bg-color);
-}
-
-.card > .btn-container{
+.book_details .input_control{
     display: flex;
-    gap: 5px;
-    justify-content: flex-end;
+    flex-direction: column;
 }
 
-.del_book{
-    width: 7%;
-    cursor: pointer;
+.input_control > label{
+    text-transform: uppercase;
 }
 
-.change_status{
-    padding: 3px 10px;
+.input_control{
+    margin-bottom: 15px;
+}
+
+.input_control input:focus {
+    outline: 0;
+}
+
+.book_details .input_control > input{
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.form > fieldset:nth-child(3){
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form > fieldset:nth-child(3) legend{
+    text-align: center;
+    color: var(--form-header-color);
     font-size: 1.1rem;
-    font-weight: 700;
-    background-color: #0ea5e9;
-    border: none;
-    outline: none;
-    border-radius: 5px;
+}
+
+.form > fieldset:nth-child(3) > .input_control{
+    display: flex;
+    gap: 7px;
+}
+
+.submit_btn{
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
     color: white;
-    box-shadow: 1px 0 3px 1px rgb(160, 145, 145);
+    background-color: var(--button-bg-color);
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
     cursor: pointer;
+}
+
+.new_book_btn{
+    background-color: var(--button-bg-color);
+    padding: 10px;
+    height: 70px;
+    width: 70px;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-right: auto;
+}
+
+.new_book_btn:hover{
+    transform: scale(1.5);
+}
+
+body.show form{
+    display: block;
+}
+
+body.show .background_blur{
+    background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    filter: blur(5px);
+}
+/* FORM */
+main.library > .book{
+    background-color: var(--form-bg-color);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+    width: 270px;
+    border-radius: 7px;
+    box-shadow: 1px 0 3px 2px rgb(238, 233, 233);
+    font-size: 1.2rem;
+    color: var(--form-header-color);
+    font-weight: 600;
+}
+
+main.library{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 16px;
 }
