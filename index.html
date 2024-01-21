@@ -9,31 +9,40 @@
     <div class="background_blur"></div>
     <div class="container">
         <header>
-            <button type="button" class="new_book_btn">Add new book</button>
+            <button type="button" class="new_book_btn" id="new_book_btn">Add new book</button>
             <h1>Library</h1>
         </header>
+            <main class="library">
+                <!-- <div class="book">
+                    <span class="book_title">Book Title: The Alchemist</span>
+                    <span class="book_author">Book Author: Paulo Coehlo</span>
+                    <span class="book_pages">Pages: 257</span>
+                    <span class="date_published">Date Pubished: 17th June 1957</span>
+                    <span class="status">Yes, I have read this book</span>
+                </div> -->
+            </main>
             <form id="form" action="#" class="form">
                 <h2>Add new book</h2>
                 <fieldset class="book_details">
                     <legend>Book details</legend>
                     <div class="input_control">
-                        <label for="book_title">Book title</label>
-                        <input type="text" id="book_title" name="book_title"> 
+                        <label for="book_title">Book title *</label>
+                        <input type="text" id="book_title" name="book_title" data-id="title"> 
                         <small class="error"></small>
                     </div>
                     <div class="input_control">
-                        <label for="book_author">Book author</label>
-                        <input type="text" id="book_author" name="book_author"> 
+                        <label for="book_author">Book author *</label>
+                        <input type="text" id="book_author" name="book_author" data-id="author"> 
                         <small class="error"></small>
                     </div>
                     <div class="input_control">
-                        <label for="book_pages">Book pages</label>
-                        <input type="number" id="book_pages" name="book_pages"> 
+                        <label for="book_pages">Book pages *</label>
+                        <input type="number" id="book_pages" name="book_pages" data-id="pages"> 
                         <small class="error"></small>
                     </div>
                     <div class="input_control">
-                        <label for="Date_published">Book published</label>
-                        <input type="date" id="Date_published" name="Date_published"> 
+                        <label for="date_published">Book published *</label>
+                        <input type="date" id="date_published" name="date_published" data-id="date"> 
                         <small class="error"></small>
                     </div>
                 </fieldset>
@@ -51,53 +60,10 @@
                         <label for="on_it">Currently reading</label>
                         <input type="radio" id="on_it" name="radio">
                     </div>
+                    <small class="error"></small>
                 </fieldset>
                 <button type="submit" class="submit_btn">Add book</button>
             </form>
-            <main class="library">
-                <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div>
-                <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div>
-                <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div>
-                <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div>
-                <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div>
-                <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div>
-            </main>
     </div>
 </body>
 </html>
