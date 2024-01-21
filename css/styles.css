@@ -9,8 +9,8 @@
 :root{
     font-size: 12px;
     --sidebar-text-color: white;
-
     --form-bg-color: rgba(0, 0, 0, 0.6);
+    --error-color: #fb7185;
 }
 
 .library{
@@ -39,6 +39,7 @@ form{
     overflow: hidden;
     padding: 10px;
     background-color: var(--form-bg-color);
+    visibility: hidden;
 }
 
 form > legend{
@@ -55,11 +56,6 @@ fieldset{
 
 fieldset.book_details > label{
     display: block;
-}
-
-fieldset.book_details > input{
-    margin-bottom: 10px;
-    font-size: 1.1rem;
 }
 
 fieldset.radio_inputs{
@@ -79,6 +75,24 @@ fieldset.book_details > input{
     border-radius: 7px;
     border-color: gray;
     outline: none;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border: none;
+}
+
+fieldset.book_details input.error{
+    margin-bottom: 0;
+    border: 2px solid var(--error-color);
+}
+
+small{
+    display: none;
+}
+
+small.error{
+    display: block;
+    margin-bottom: 10px;
+    color: var(--error-color);
 }
 
 .submit_btn, .add_book_btn{
@@ -100,7 +114,14 @@ fieldset.book_details > input{
 
 .add_book_btn{
     width: 50%;
+    text-transform: uppercase;
 }
+
+form.show{
+    visibility: visible;
+}
+
+
 /* Sidebar */
 
 /* header */
@@ -144,9 +165,33 @@ main.content{
 .card{
     display: grid;
     gap: 12px;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     background-color: var(--sidebar-text-color);
     padding: 20px; 
     border-radius: 5px;
     box-shadow: 0 4px 8px var(--form-bg-color);
+}
+
+.card > .btn-container{
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+}
+
+.del_book{
+    width: 7%;
+    cursor: pointer;
+}
+
+.change_status{
+    padding: 3px 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: #0ea5e9;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 1px 0 3px 1px rgb(160, 145, 145);
+    cursor: pointer;
 }
