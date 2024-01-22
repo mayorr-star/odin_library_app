@@ -3,43 +3,7 @@ const newBookButton = document.getElementById("new_book_btn");
 const formInputs = document.querySelectorAll("input");
 const body = document.querySelector("body");
 let wrongInput = true;
-const myLibrary = [
-  {
-    title: "The Alchemist",
-    author: "Paulo Coehlo",
-    pages: "2345",
-    datePublished: "12th June 2003",
-    readStatus: "I have read"
-  },
-  {
-    title: "The Alchemist",
-    author: "Paulo Coehlo",
-    pages: "2345",
-    datePublished: "12th June 2003",
-    readStatus: "I have read"
-  },
-  {
-    title: "The Alchemist",
-    author: "Paulo Coehlo",
-    pages: "2345",
-    datePublished: "12th June 2003",
-    readStatus: "I have read"
-  },
-  {
-    title: "The Alchemist",
-    author: "Paulo Coehlo",
-    pages: "2345",
-    datePublished: "12th June 2003",
-    readStatus: "I have read"
-  },
-  {
-    title: "The Alchemist",
-    author: "Paulo Coehlo",
-    pages: "2345",
-    datePublished: "12th June 2003",
-    readStatus: "Yes, I have read this book"
-  }
-];
+const myLibrary = [];
 
 window.addEventListener("DOMContentLoaded", displayBook);
 newBookButton.addEventListener("click", showForm);
@@ -74,9 +38,18 @@ function displayBook() {
     <span class="book_pages">Pages: ${myLibrary[i].pages} pages</span>
     <span class="date_published">Date Pubished: ${myLibrary[i].datePublished}</span>
     <span class="status">Read Status: ${myLibrary[i].readStatus}</span>
+    <button type="button" data-index="${i}" class="remove_btn"><img src="./css/images/delete-outline.svg" alt="trash icon"></button>
 </div>`
   };
   booksContainer.innerHTML = book;
+
+  const deleteBookButtons = document.querySelectorAll(".remove_btn");
+
+  deleteBookButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      console.log(button.dataset.index)
+    })
+  })
 }
 
 function showForm() {
@@ -109,6 +82,7 @@ function validateFormInputs() {
   const bookPages = document.getElementById("book_pages");
   const datePublished = document.getElementById("date_published");
   const yesRead = document.getElementById("yes");
+  const yesReadInputControl = document.getElementById("yes_input");
   const noRead = document.getElementById("no");
   const stillRead = document.getElementById("on_it");
 
@@ -153,7 +127,9 @@ function validateFormInputs() {
 
   if (!yesRead.checked && !noRead.checked && !stillRead.checked) {
     wrongInput = true;
-    alert("Please check")
+    setError(yesReadInputControl, "Please select any of the above")
+  } else{
+    setSuccess(yesReadInputControl)
   }
 }
 
@@ -179,7 +155,6 @@ function getBookDetails() {
     }
     if (input.dataset.id === "radio" && input.checked) {
       ReadStatus = input.value;
-      console.log(ReadStatus)
     }
   })
   return new Book(BookTitle, BookAuthor, BookPages, DatePublished, ReadStatus)
