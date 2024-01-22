@@ -155,6 +155,21 @@ body.show form{
     font-size: 9px;
 }
 
+.remove_btn{
+    width: 15%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    background-color: var(--form-bg-color);
+}
+
+.remove_btn:hover{
+    transition: 1s ease-in all;
+    transform: rotate(360deg);
+}
+
 /* body.show .background_blur{
     background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);
     position: absolute;
