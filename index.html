@@ -12,15 +12,7 @@
             <button type="button" class="new_book_btn" id="new_book_btn">Add new book</button>
             <h1>Library</h1>
         </header>
-            <main class="library">
-                <!-- <div class="book">
-                    <span class="book_title">Book Title: The Alchemist</span>
-                    <span class="book_author">Book Author: Paulo Coehlo</span>
-                    <span class="book_pages">Pages: 257</span>
-                    <span class="date_published">Date Pubished: 17th June 1957</span>
-                    <span class="status">Yes, I have read this book</span>
-                </div> -->
-            </main>
+            <main class="library"></main>
             <form id="form" action="#" class="form">
                 <h2>Add new book</h2>
                 <fieldset class="book_details">
@@ -48,17 +40,17 @@
                 </fieldset>
                 <fieldset>
                     <legend>Have you read the book?</legend>
-                    <div class="input_control">
+                    <div class="input_control" id="yes_input">
                         <label for="yes">Yes</label>
-                        <input type="radio" id="yes" name="radio">
+                        <input type="radio" id="yes" name="radio" data-id="radio" value="I have read this book">
                     </div>
                     <div class="input_control">
                         <label for="no">No</label>
-                        <input type="radio" id="no" name="radio">
+                        <input type="radio" id="no" name="radio" data-id="radio" value="No, I haven't read this book">
                     </div>
                     <div class="input_control">
                         <label for="on_it">Currently reading</label>
-                        <input type="radio" id="on_it" name="radio">
+                        <input type="radio" id="on_it" name="radio" data-id="radio" value="I'm currently reading this book">
                     </div>
                     <small class="error"></small>
                 </fieldset>
