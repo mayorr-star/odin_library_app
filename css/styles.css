@@ -36,6 +36,7 @@ body{
 }
 
 /* FORM */
+
 .form{
     background-color: var(--form-bg-color);
     padding: 20px;
@@ -179,14 +180,17 @@ body.show form{
     z-index: -1;
     filter: blur(20px);
 } */
+
 /* FORM */
+
+/* MAIN */
+
 main.library > .book{
     background-color: var(--form-bg-color);
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding: 20px;
-    width: 270px;
     border-radius: 7px;
     box-shadow: 1px 0 3px 2px rgb(238, 233, 233);
     font-size: 1.2rem;
@@ -197,6 +201,8 @@ main.library > .book{
 main.library{
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 1.5rem;
 }
+
+/* MAIN */
