@@ -136,6 +136,7 @@ body{
 
 .new_book_btn:hover{
     transform: scale(1.5);
+    transition: 0.5s ease-in all;
 }
 
 body.show form{
