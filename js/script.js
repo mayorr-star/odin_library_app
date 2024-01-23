@@ -3,7 +3,57 @@ const newBookButton = document.getElementById("new_book_btn");
 const formInputs = document.querySelectorAll("input");
 const body = document.querySelector("body");
 let wrongInput = true;
-const myLibrary = [];
+let myLibrary = [
+  {
+    title: "The 0",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+  {
+    title: "The 1",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+  {
+    title: "The 2",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+  {
+    title: "The 3",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+  {
+    title: "The 4",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+  {
+    title: "The 5",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+  {
+    title: "The 6",
+    author: "askdad",
+    pages: "134",
+    datePublished: "3e32",
+    readStatus: "yes"
+  },
+];
 
 window.addEventListener("DOMContentLoaded", displayBook);
 newBookButton.addEventListener("click", showForm);
@@ -47,9 +97,15 @@ function displayBook() {
 
   deleteBookButtons.forEach(button => {
     button.addEventListener("click", (e) => {
-      console.log(button.dataset.index)
+      const buttonId = e.currentTarget.dataset.index;
+      deleteBook(buttonId);
+      displayBook();
     })
   })
+}
+
+function deleteBook(buttonIndex) {
+  myLibrary.splice(buttonIndex, 1);
 }
 
 function showForm() {
