@@ -89,7 +89,10 @@ function displayBook() {
     <span class="book_pages">Pages: ${myLibrary[i].pages} pages</span>
     <span class="date_published">Date Pubished: ${myLibrary[i].datePublished}</span>
     <span class="status">Read Status: ${myLibrary[i].readStatus}</span>
-    <button type="button" data-index="${i}" class="remove_btn"><img src="./css/images/delete-outline.svg" alt="trash icon"></button>
+    <div class="btn_container">
+      <button type="button" data-index="${i}" class="remove_btn"><img src="./css/images/delete-outline.svg" alt="trash icon"></button>
+      <button type="button" data-index="${i}" class="status_btn"><img src="./css/images/swap-horizontal.svg" alt="swap icon"></button>
+    </div>
 </div>`;
   }
   booksContainer.innerHTML = book;
