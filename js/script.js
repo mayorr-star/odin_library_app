@@ -9,55 +9,55 @@ let myLibrary = [
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
   {
     title: "The 1",
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
   {
     title: "The 2",
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
   {
     title: "The 3",
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
   {
     title: "The 4",
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
   {
     title: "The 5",
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
   {
     title: "The 6",
     author: "askdad",
     pages: "134",
     datePublished: "3e32",
-    readStatus: "yes"
+    readStatus: "yes",
   },
 ];
 
 window.addEventListener("DOMContentLoaded", displayBook);
 newBookButton.addEventListener("click", showForm);
-form.addEventListener("submit", e => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   validateFormInputs();
   if (!wrongInput) {
@@ -65,10 +65,11 @@ form.addEventListener("submit", e => {
     displayBook();
     removeForm();
   }
+  resetForm();
 });
 
 function addBookToLibrary(book) {
-  myLibrary.push(book)
+  myLibrary.push(book);
 }
 
 function Book(title, author, pages, datePublished, readStatus) {
@@ -89,19 +90,19 @@ function displayBook() {
     <span class="date_published">Date Pubished: ${myLibrary[i].datePublished}</span>
     <span class="status">Read Status: ${myLibrary[i].readStatus}</span>
     <button type="button" data-index="${i}" class="remove_btn"><img src="./css/images/delete-outline.svg" alt="trash icon"></button>
-</div>`
-  };
+</div>`;
+  }
   booksContainer.innerHTML = book;
 
   const deleteBookButtons = document.querySelectorAll(".remove_btn");
 
-  deleteBookButtons.forEach(button => {
+  deleteBookButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const buttonId = e.currentTarget.dataset.index;
       deleteBook(buttonId);
       displayBook();
-    })
-  })
+    });
+  });
 }
 
 function deleteBook(buttonIndex) {
@@ -109,11 +110,11 @@ function deleteBook(buttonIndex) {
 }
 
 function showForm() {
-  body.classList.toggle("show")
+  body.classList.toggle("show");
 }
 
 function removeForm() {
-  body.classList.remove("show")
+  body.classList.remove("show");
 }
 
 function setError(element, message) {
@@ -145,47 +146,64 @@ function validateFormInputs() {
   const bookTitleValue = document.getElementById("book_title").value.trim();
   const bookAuthorValue = document.getElementById("book_author").value.trim();
   const bookPagesValue = document.getElementById("book_pages").value.trim();
-  const datePublishedValue = document.getElementById("date_published").value.trim();
+  const datePublishedValue = document
+    .getElementById("date_published")
+    .value.trim();
   if (bookTitleValue === "") {
     wrongInput = true;
-    setError(bookTitle, "Book title is required")
+    setError(bookTitle, "Book title is required");
   } else {
-    setSuccess(bookTitle)
+    setSuccess(bookTitle);
     wrongInput = false;
   }
 
   if (bookAuthorValue === "") {
     wrongInput = true;
-    setError(bookAuthor, "Book author is required")
+    setError(bookAuthor, "Book author is required");
   } else {
-    wrongInput =  false;
-    setSuccess(bookAuthor)
+    wrongInput = false;
+    setSuccess(bookAuthor);
   }
 
   if (bookPagesValue === "") {
     wrongInput = true;
-    setError(bookPages, "Book pages is required")
+    setError(bookPages, "Book pages is required");
   } else if (bookPagesValue < 1) {
     wrongInput = true;
-    setError(bookPages, "Pages can't be less than 1")
-  }  else {
-    wrongInput = false;
-    setSuccess(bookPages)
-  }
-  
-  if (datePublishedValue === "") {
-    wrongInput = true;
-    setError(datePublished, "Date published is required")
+    setError(bookPages, "Pages can't be less than 1");
   } else {
     wrongInput = false;
-    setSuccess(datePublished)
+    setSuccess(bookPages);
+  }
+
+  if (datePublishedValue === "") {
+    wrongInput = true;
+    setError(datePublished, "Date published is required");
+  } else {
+    wrongInput = false;
+    setSuccess(datePublished);
   }
 
   if (!yesRead.checked && !noRead.checked && !stillRead.checked) {
     wrongInput = true;
-    setError(yesReadInputControl, "Please select any of the above")
-  } else{
-    setSuccess(yesReadInputControl)
+    setError(yesReadInputControl, "Please select any of the above");
+  } else {
+    setSuccess(yesReadInputControl);
+  }
+}
+
+function resetForm() {
+  if (!body.classList.contains("show")) {
+    formInputs.forEach((input) => {
+      input.value = "";
+      if (input.parentNode.classList.contains("success")) {
+        input.parentNode.classList.remove("success");
+      } else if (input.parentNode.classList.contains("error")) {
+        input.parentNode.classList.remove("error");
+      } else if (input.checked) {
+        input.checked = false;
+      }
+    });
   }
 }
 
@@ -195,8 +213,8 @@ function getBookDetails() {
   let BookPages = null;
   let DatePublished = null;
   let ReadStatus = null;
-  formInputs.forEach(input => {
-    switch(input.dataset.id) {
+  formInputs.forEach((input) => {
+    switch (input.dataset.id) {
       case "title":
         BookTitle = input.value;
         break;
@@ -212,6 +230,6 @@ function getBookDetails() {
     if (input.dataset.id === "radio" && input.checked) {
       ReadStatus = input.value;
     }
-  })
-  return new Book(BookTitle, BookAuthor, BookPages, DatePublished, ReadStatus)
+  });
+  return new Book(BookTitle, BookAuthor, BookPages, DatePublished, ReadStatus);
 }
