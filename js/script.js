@@ -198,7 +198,7 @@ function getBookDetails() {
 
 function updateReadingStatus(e) {
   const buttonId = e.currentTarget.dataset.index
-  const status= ["Yes, I have read this book", "No I haven't read this book", "I'm currently reading this book"];
+  const status= ["Yes, I have read this book", "No, I haven't read this book", "I'm currently reading this book"];
   if (counter > 2) {
     counter = 0;
   }
