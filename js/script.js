@@ -3,57 +3,8 @@ const newBookButton = document.getElementById("new_book_btn");
 const formInputs = document.querySelectorAll("input");
 const body = document.querySelector("body");
 let wrongInput = true;
-let myLibrary = [
-  {
-    title: "The 0",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-  {
-    title: "The 1",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-  {
-    title: "The 2",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-  {
-    title: "The 3",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-  {
-    title: "The 4",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-  {
-    title: "The 5",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-  {
-    title: "The 6",
-    author: "askdad",
-    pages: "134",
-    datePublished: "3e32",
-    readStatus: "yes",
-  },
-];
+let counter = 0;
+let myLibrary = [];
 
 window.addEventListener("DOMContentLoaded", displayBook);
 newBookButton.addEventListener("click", showForm);
@@ -98,18 +49,26 @@ function displayBook() {
   booksContainer.innerHTML = book;
 
   const deleteBookButtons = document.querySelectorAll(".remove_btn");
+  const changeStatusButtons = document.querySelectorAll(".status_btn");
 
   deleteBookButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const buttonId = e.currentTarget.dataset.index;
-      deleteBook(buttonId);
+    button.addEventListener("click", e => {
+      deleteBook(e);
       displayBook();
     });
   });
+
+  changeStatusButtons.forEach(button => {
+    button.addEventListener("click", e => {
+      counter++;
+      updateReadingStatus(e);
+    })
+  })
 }
 
-function deleteBook(buttonIndex) {
-  myLibrary.splice(buttonIndex, 1);
+function deleteBook(e) {
+  const buttonId = e.currentTarget.dataset.index;
+  myLibrary.splice(buttonId, 1);
 }
 
 function showForm() {
@@ -235,4 +194,14 @@ function getBookDetails() {
     }
   });
   return new Book(BookTitle, BookAuthor, BookPages, DatePublished, ReadStatus);
+}
+
+function updateReadingStatus(e) {
+  const buttonId = e.currentTarget.dataset.index
+  const status= ["Yes, I have read this book", "No I haven't read this book", "I'm currently reading this book"];
+  if (counter > 2) {
+    counter = 0;
+  }
+  myLibrary[buttonId].readStatus = status[counter];
+  displayBook()
 }
