@@ -20,15 +20,19 @@ form.addEventListener("submit", (e) => {
 });
 
 function addBookToLibrary(book) {
-  myLibrary.push(book);
+  if(!myLibrary.includes(book)) {
+    myLibrary.push(book);
+  }
 }
 
-function Book(title, author, pages, datePublished, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.datePublished = datePublished;
-  this.readStatus = readStatus;
+class Book {
+  constructor(title, author, pages, datePublished, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.datePublished = datePublished;
+    this.readStatus = readStatus;
+  }
 }
 
 function displayBook() {
@@ -52,18 +56,18 @@ function displayBook() {
   const changeStatusButtons = document.querySelectorAll(".status_btn");
 
   deleteBookButtons.forEach((button) => {
-    button.addEventListener("click", e => {
+    button.addEventListener("click", (e) => {
       deleteBook(e);
       displayBook();
     });
   });
 
-  changeStatusButtons.forEach(button => {
-    button.addEventListener("click", e => {
+  changeStatusButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
       counter++;
       updateReadingStatus(e);
-    })
-  })
+    });
+  });
 }
 
 function deleteBook(e) {
@@ -197,11 +201,15 @@ function getBookDetails() {
 }
 
 function updateReadingStatus(e) {
-  const buttonId = e.currentTarget.dataset.index
-  const status= ["Yes, I have read this book", "No, I haven't read this book", "I'm currently reading this book"];
+  const buttonId = e.currentTarget.dataset.index;
+  const status = [
+    "Yes, I have read this book",
+    "No, I haven't read this book",
+    "I'm currently reading this book",
+  ];
   if (counter > 2) {
     counter = 0;
   }
   myLibrary[buttonId].readStatus = status[counter];
-  displayBook()
+  displayBook();
 }
